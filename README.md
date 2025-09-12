@@ -1,5 +1,5 @@
 
-```markdown
+
 # Documentação da Solução - API de Busca de Livros com Tradução
 
 ## Objetivo do Trabalho
@@ -18,4 +18,3 @@ Desenvolver uma API RESTful para busca de livros em APIs externas combinando com
 *   Tradução automática de descrições e metadados de livros
 *   Opção configurável para ativar/desativar tradução
 *   Preservação de termos técnicos e nomes próprios durante a tradução
-```
