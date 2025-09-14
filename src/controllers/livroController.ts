@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { buscarLivros, buscarLivroPorId } from '../services/livroService';
 import { traduzirTexto } from '../services/traducaoService';
+import { formatarTexto } from '../utils/formatarTexto';
 
 export const livroController = {
 
@@ -22,9 +23,10 @@ export const livroController = {
       if (!livro) {
         return res.status(404).json({ error: 'Livro não encontrado', id });
       }
-      // Traduzir descrição, se houver
+      // Limpar tags HTML e traduzir descrição, se houver
       if (livro.descricao && livro.descricao !== 'Descrição não disponível') {
-        livro.descricao = await traduzirTexto(livro.descricao, 'pt');
+        const descricaoLimpa = formatarTexto(livro.descricao);
+        livro.descricao = await traduzirTexto(descricaoLimpa, 'pt');
       }
       res.json({ success: true, livro, traduzido: true });
     } catch (error) {

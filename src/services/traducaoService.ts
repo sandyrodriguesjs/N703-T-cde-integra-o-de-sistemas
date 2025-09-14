@@ -17,6 +17,11 @@ export async function traduzirTexto(texto: string, target: string = 'pt'): Promi
     
   } catch (error) {
     console.warn('Google Translate falhou, mantendo texto original');
+    if (error instanceof Error) {
+      console.error('Detalhes do erro:', error.message, error.stack);
+    } else {
+      console.error('Erro desconhecido:', error);
+    }
     return texto;
   }
 }
