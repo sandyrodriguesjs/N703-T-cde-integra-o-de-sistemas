@@ -1,21 +1,32 @@
 import { Request, Response } from 'express';
-import { buscarLivros } from '../services/livroService';
+import { buscarLivros, buscarLivroPorId } from '../services/livroService';
 import { traduzirTexto } from '../services/traducaoService';
 
 export const livroController = {
-  // Como não temos banco local, essas funções podem retornar vazio ou erro
+
   getAll: (req: Request, res: Response) => {
     res.status(200).json({ 
-      message: 'Use a rota /api/buscar?query=termo para buscar livros',
+      message: 'Use a rota /api/livros?query=termo para buscar livros',
       observacao: 'Tradução para PT-BR ativada por padrão. Para desativar, use traduzir=false',
-      exemplo: 'http://localhost:3000/api/buscar?query=harry+potter'
+      exemplo: 'http://localhost:3000/api/livros?query=harry+potter'
     });
   },
 
-  getById: (req: Request, res: Response) => {
-    res.status(404).json({ 
-      error: 'Funcionalidade não disponível. Use a busca por query.' 
-    });
+  getById: async (req: Request, res: Response) => {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ error: 'Parâmetro "id" é obrigatório' });
+    }
+    try {
+      const livro = await buscarLivroPorId(id);
+      if (!livro) {
+        return res.status(404).json({ error: 'Livro não encontrado', id });
+      }
+      res.json({ success: true, livro });
+    } catch (error) {
+      console.error('Erro ao buscar livro por ID:', error);
+      res.status(500).json({ error: 'Erro interno ao buscar livro por ID' });
+    }
   },
 
   // Função principal de busca
