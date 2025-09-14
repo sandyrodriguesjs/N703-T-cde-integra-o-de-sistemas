@@ -18,11 +18,15 @@ export const livroController = {
       return res.status(400).json({ error: 'Parâmetro "id" é obrigatório' });
     }
     try {
-      const livro = await buscarLivroPorId(id);
+      let livro = await buscarLivroPorId(id);
       if (!livro) {
         return res.status(404).json({ error: 'Livro não encontrado', id });
       }
-      res.json({ success: true, livro });
+      // Traduzir descrição, se houver
+      if (livro.descricao && livro.descricao !== 'Descrição não disponível') {
+        livro.descricao = await traduzirTexto(livro.descricao, 'pt');
+      }
+      res.json({ success: true, livro, traduzido: true });
     } catch (error) {
       console.error('Erro ao buscar livro por ID:', error);
       res.status(500).json({ error: 'Erro interno ao buscar livro por ID' });
