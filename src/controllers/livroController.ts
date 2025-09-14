@@ -7,31 +7,14 @@ export const livroController = {
   getAll: (req: Request, res: Response) => {
     res.status(200).json({ 
       message: 'Use a rota /api/buscar?query=termo para buscar livros',
-      exemplo: 'http://localhost:3000/api/buscar?query=harry+potter&traduzir=true'
+      observacao: 'Tradução para PT-BR ativada por padrão. Para desativar, use traduzir=false',
+      exemplo: 'http://localhost:3000/api/buscar?query=harry+potter'
     });
   },
 
   getById: (req: Request, res: Response) => {
     res.status(404).json({ 
       error: 'Funcionalidade não disponível. Use a busca por query.' 
-    });
-  },
-
-  create: (req: Request, res: Response) => {
-    res.status(404).json({ 
-      error: 'Funcionalidade não disponível. Esta API apenas busca livros externos.' 
-    });
-  },
-
-  update: (req: Request, res: Response) => {
-    res.status(404).json({ 
-      error: 'Funcionalidade não disponível.' 
-    });
-  },
-
-  delete: (req: Request, res: Response) => {
-    res.status(404).json({ 
-      error: 'Funcionalidade não disponível.' 
     });
   },
 
@@ -50,7 +33,8 @@ export const livroController = {
       });
     }
 
-    const deveTraduzir = traduzir === 'true';
+  // Tradução habilitada por padrão, a menos que explicitamente "traduzir=false"
+  const deveTraduzir = traduzir !== 'false';
     console.log(`🔍 Buscando: "${query}"`, deveTraduzir ? '(com tradução)' : '');
 
     const limite = maxResults ? parseInt(maxResults) : 12;
