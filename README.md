@@ -45,7 +45,8 @@ A API segue uma arquitetura modular, organizada em camadas:
 
 ### Diagrama da Arquitetura
 
-<img src="docs/architecture/architecture_diagram.png" alt="Diagrama da Arquitetura" width="300"/>
+<img src="docs/architecture_diagram.png" alt="Diagrama da Arquitetura" width="300"/>
+
 
 
 ## Instruções de Execução
