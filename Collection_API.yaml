@@ -1,0 +1,63 @@
+type: collection.insomnia.rest/5.0
+name: N705 - BiblioConecta
+meta:
+  id: wrk_8634cf2ff84e4bfcaaf01a9dad98e045
+  created: 1757888990700
+  modified: 1758120846836
+  description: ""
+collection:
+  - url: http://localhost:3000/api/livros?query=harry+potter
+    name: New Request
+    meta:
+      id: req_dd371ecb1c884980b6094160c185f5a6
+      created: 1757889012129
+      modified: 1757891718249
+      isPrivate: false
+      description: ""
+      sortKey: -1757889012129
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/livros/uQpRPgAACAAJ
+    name: New Request
+    meta:
+      id: req_3101bb0b64d34cbbb9fad08fd608b587
+      created: 1757891481334
+      modified: 1758120735201
+      isPrivate: false
+      description: ""
+      sortKey: -1757891481334
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_c7f90f2045c25e7200d8a9d75257ce7fda4dc725
+    created: 1757888990727
+    modified: 1757888990727
+environments:
+  name: Base Environment
+  meta:
+    id: env_c7f90f2045c25e7200d8a9d75257ce7fda4dc725
+    created: 1757888990711
+    modified: 1757888990711
+    isPrivate: false
