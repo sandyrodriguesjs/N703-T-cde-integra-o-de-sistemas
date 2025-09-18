@@ -1,0 +1,318 @@
+{
+  "info": {
+    "_postman_id": "e509574a-fa3e-4406-8170-6553fa4931ba",
+    "name": "BiblioConecta",
+    "description": "API para busca de livros via Google Books, com tradução automática de título e descrição para PT-BR.\n- Tradução ativada por padrão.\n- Para desativar, use o parâmetro `traduzir=false`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39908914"
+  },
+  "item": [
+    {
+      "name": "livros",
+      "item": [
+        {
+          "name": "Buscar livros",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/livros?query=&maxResults=&traduzir=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "livros"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "",
+                  "description": "(Required) Termo de busca (título, autor, etc.)"
+                },
+                {
+                  "key": "maxResults",
+                  "value": "",
+                  "description": "Número máximo de resultados (padrão: 12)"
+                },
+                {
+                  "key": "traduzir",
+                  "value": "",
+                  "description": "Ativa/desativa tradução automática (padrão: true)"
+                }
+              ]
+            },
+            "description": "Busca livros no Google Books com suporte a tradução para PT-BR."
+          },
+          "response": [
+            {
+              "name": "Lista de livros encontrada",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/livros?query=simund+freud&maxResults=2&traduzir=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livros"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "simund+freud",
+                      "description": "(Required) Termo de busca (título, autor, etc.)"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "2",
+                      "description": "Número máximo de resultados (padrão: 12)"
+                    },
+                    {
+                      "key": "traduzir",
+                      "value": "true",
+                      "description": "Ativa/desativa tradução automática (padrão: true)"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "Erro de parâmetro ausente",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/livros?query=&maxResults=12&traduzir=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livros"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "",
+                      "description": "(Required) Termo de busca (título, autor, etc.)"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "12",
+                      "description": "Número máximo de resultados (padrão: 12)"
+                    },
+                    {
+                      "key": "traduzir",
+                      "value": "true",
+                      "description": "Ativa/desativa tradução automática (padrão: true)"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "Nenhum livro encontrado",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/livros?query=adsasdads&maxResults=12&traduzir=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livros"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "adsasdads",
+                      "description": "(Required) Termo de busca (título, autor, etc.)"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "12",
+                      "description": "Número máximo de resultados (padrão: 12)"
+                    },
+                    {
+                      "key": "traduzir",
+                      "value": "true",
+                      "description": "Ativa/desativa tradução automática (padrão: true)"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "Buscar livro por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/livros/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "livros",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "(Required) ID do livro no Google Books"
+                }
+              ]
+            },
+            "description": "Retorna os detalhes de um livro específico disponível no Google Books."
+          },
+          "response": [
+            {
+              "name": "Livro encontrado",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/livros/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livros",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "DhPUDwAAQBAJ"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "Parâmetro \"id\" ausente",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/livros/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livros",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "Livro não encontrado",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/livros/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "livros",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "asdsadsasda"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api"
+    }
+  ]
+}
