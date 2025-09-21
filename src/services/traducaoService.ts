@@ -5,22 +5,20 @@ export async function traduzirTexto(texto: string, target: string = 'pt'): Promi
     return texto;
   }
 
-  console.log(`🔠 Traduzindo: ${texto.substring(0, 40)}...`);
 
   try {
-    // Usa parâmetros corretos para MyMemory
+  
     const response = await axios.get('https://api.mymemory.translated.net/get', {
       params: {
         q: texto,
-        langpair: 'en|pt', // FIXED: Não usa 'auto', especifica en->pt
-        mt: '1', // Machine translation
-        onlyprivate: '0', // Inclui traduções públicas
-        de: 'myapp@example.com' // Email para limites maiores
+        langpair: 'en|pt', 
+        mt: '1', 
+        onlyprivate: '0', 
+        de: 'myapp@example.com' 
       },
       timeout: 10000
     });
 
-    console.log('Resposta MyMemory:', JSON.stringify(response.data, null, 2));
 
     if (response.data && response.data.responseData && response.data.responseData.translatedText) {
       return response.data.responseData.translatedText;

@@ -41,7 +41,6 @@ export async function buscarLivros(query: string, maxResults: number = 5): Promi
     });
 
     if (!response.data.items || response.data.items.length === 0) {
-      console.log('Nenhum livro encontrado na API externa');
       return [];
     }
 
