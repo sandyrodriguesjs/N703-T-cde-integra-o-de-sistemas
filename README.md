@@ -10,6 +10,17 @@ O objetivo deste trabalho é desenvolver uma **API RESTful** capaz de realizar b
 
 ---
 
+## Relação com os Objetivos de Desenvolvimento Sustentável (ODS)
+
+O projeto BiblioConecta possui alinhamento direto com o **ODS 11 – Cidades e Comunidades Sustentáveis**, que busca tornar os espaços urbanos mais inclusivos, seguros, resilientes e sustentáveis.
+
+A API proposta contribui para esse objetivo ao:
+
+*   **Promover a inclusão digital e cultural**, disponibilizando descrições e metadados de livros em português, mesmo quando a fonte original está em outro idioma.
+*   **Reduzir barreiras linguísticas**, permitindo que comunidades diversas e multiculturais tenham acesso facilitado à informação e ao conhecimento.
+*   **Apoiar bibliotecas, escolas e universidades** na construção de plataformas digitais que democratizam o acesso à leitura, fortalecendo o papel da educação como elemento central para cidades mais sustentáveis.
+*   **Estimular a inovação em ambientes urbanos**, ao fornecer uma solução tecnológica que pode ser integrada a aplicativos de leitura, hubs culturais e iniciativas de inclusão social.
+
 ## Descrição funcional da solução
 
 A solução foi projetada para oferecer:
@@ -46,6 +57,8 @@ A API segue uma arquitetura modular, organizada em camadas:
 ### Diagrama da Arquitetura
 
 <img src="./docs/architecture.md/architecture_diagram.png" alt="Diagrama da Arquitetura" width="300"/>
+
+
 
 ## Instruções de Execução
 
