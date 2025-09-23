@@ -24,6 +24,7 @@ Esta documentação descreve os testes unitários realizados nos endpoints da AP
 | Nenhum livro encontrado | `/api/livros?query=adsasdads&maxResults=2&traduzir=true` | 404 | Erro `"Livro não encontrado"` | ![Nenhum livro encontrado](tests/Nenhum_livro_encontrado.png) |
 
 
+
 ---
 
 ### 2. Buscar livro por ID
