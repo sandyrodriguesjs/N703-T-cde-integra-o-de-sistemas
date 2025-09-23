@@ -19,9 +19,9 @@ Esta documentação descreve os testes unitários realizados nos endpoints da AP
 
 | Cenário | Requisição | Status Esperado | Resultado Esperado | Print |
 |---------|-----------|----------------|------------------|-------|
-| Busca válida | `/api/livros?query=sigmund+freud&maxResults=2&traduzir=true` | 200 | `success: true`, array de livros | ![Busca válida](tests/Busca_valida.png) |
-| Query ausente | `/api/livros?query=&maxResults=2&traduzir=true` | 400 | Erro `"Parâmetro \"query\" é obrigatório"` | ![Query ausente](tests/Query_ausente.png) |
-| Nenhum livro encontrado | `/api/livros?query=adsasdads&maxResults=2&traduzir=true` | 404 | Erro `"Livro não encontrado"` | ![Nenhum livro encontrado](tests/Nenhum_livro_encontrado.png) |
+| Busca válida | `/api/livros?query=sigmund+freud&maxResults=2&traduzir=true` | 200 | `success: true`, array de livros | ![Busca válida](tests/busca_valida.png) |
+| Query ausente | `/api/livros?query=&maxResults=2&traduzir=true` | 400 | Erro `"Parâmetro \"query\" é obrigatório"` | ![Query ausente](tests/query_ausente.png) |
+| Nenhum livro encontrado | `/api/livros?query=adsasdads&maxResults=2&traduzir=true` | 404 | Erro `"Livro não encontrado"` | ![Nenhum livro encontrado](tests/nenhum_livro_encontrado.png) |
 
 
 
