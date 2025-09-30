@@ -64,11 +64,12 @@ A API segue uma arquitetura modular, organizada em camadas:
 
 ### 📌 Execução via Postman/Insomnia
 
-Instruções detalhadas para execução da API utilizando ferramentas como **Postman** ou **Insomnia**.
-
 1. Rode o comando `npm install` para instalar as dependências do projeto
 2. Na sequência execute o comando `npm run dev` para rodar o projeto
-3. No Postman vá até `File > Import` e selecione o arquivo `./postman/collection.js` para importação das rotas e exemplos de uso.
+3. No **Postman**: 
+vá até `File > Import` e selecione o arquivo `./postman/collection.js` para importação das rotas e exemplos de uso.
+
+No **Insomnia**: clique em Create ou no menu de Workspaces (canto superior esquerdo), selecione `Import Data > From File` e selecione o arquivo `./postman/collection.js`
 
 ### 📌 Documentação das Rotas
 
@@ -222,4 +223,25 @@ Documentação completa das rotas da API, incluindo parâmetros, exemplos de req
 }
 ```
 
+#### 5. Documentação via Swagger
+
+##### a) Instale as dependências
+No terminal, dentro da pasta do projeto:
+```
+npm install
+```
+
+##### b) Rode o servidor
+Execute:
+```
+npm run dev
+```
+
+O servidor será iniciado na porta 3000 (confirmação em src/server.ts).
+
+##### c) Acesse a documentação via Swagger
+Abra o navegador e acesse o endereço:
+`http://localhost:3000/api-docs`
+
+A documentação interativa estará disponível, conforme a configuração encontrada em src/swagger.ts.
 ---
